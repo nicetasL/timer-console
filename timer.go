@@ -7,13 +7,18 @@ import (
 	"time"
 )
 
+// Timer interface defines the Start method
+type Timer interface {
+	Start() // Starts the timer countdown
+}
+
 // SimpleTimer struct holds the duration of the timer
 type SimpleTimer struct {
 	duration int
 }
 
-// NewTimer creates a new timer instance
-func NewTimer(duration int) *SimpleTimer {
+// NewTimer creates a new instance of a Timer
+func NewTimer(duration int) Timer {
 	return &SimpleTimer{duration: duration}
 }
 
@@ -34,6 +39,5 @@ func main() {
 
 	// Create and start the timer
 	timer := NewTimer(*duration)
-	fmt.Printf("Timer started for %d seconds...\n", *duration)
 	timer.Start()
 }
