@@ -1,0 +1,46 @@
+# Ignore the Go binary files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Ignore the Go object files and archives
+*.a
+*.o
+*.out
+
+# Ignore the Go build and test directories
+/bin/
+/obj/
+
+# Go vendor directory (if you use vendoring)
+vendor/
+
+# Go module files (if you don't want to ignore these, remove this line)
+go.sum
+go.mod
+
+# IDE/editor files
+.idea/
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary files created by your editor or IDE
+*.swp
+*~
+*.bak
+
+# Ignore the coverage report files
+*.coverprofile
+
+# Ignore test data and results
+testdata/
