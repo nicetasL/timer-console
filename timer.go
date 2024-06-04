@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os"
 	"time"
 )
 
@@ -24,8 +25,9 @@ func NewTimer(duration int) Timer {
 
 // Start begins the timer and prints when it finishes
 func (t *SimpleTimer) Start() {
+	log.Printf("Timer started for %d seconds...\n", t.duration)
 	time.Sleep(time.Duration(t.duration) * time.Second)
-	fmt.Printf("Timer of %d seconds finished!\n", t.duration)
+	log.Printf("Timer of %d seconds finished!\n", t.duration)
 }
 
 func main() {
@@ -33,8 +35,10 @@ func main() {
 	duration := flag.Int("time", 0, "Duration of the timer in seconds")
 	flag.Parse()
 
+	// Check if duration is valid
 	if *duration <= 0 {
-		log.Fatal("Please provide a positive duration in seconds.")
+		fmt.Println("Error: Please provide a positive duration in seconds.")
+		os.Exit(1)
 	}
 
 	// Create and start the timer
